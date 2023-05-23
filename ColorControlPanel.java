@@ -38,6 +38,8 @@ public class ColorControlPanel extends JPanel {
         this.rColorSlider.addChangeListener(new RSliderChangeListener(this.colorDisplayPanelRef, this));
         this.gColorSlider.addChangeListener(new GSliderChangeListener(this.colorDisplayPanelRef, this));
         this.bColorSlider.addChangeListener(new BSliderChangeListener(this.colorDisplayPanelRef, this));
+
+        this.rColorValue.addActionListener(new RValueActionListener(this.colorDisplayPanelRef, this));
     }
 
     public int getRSliderValue(){
