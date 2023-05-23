@@ -43,6 +43,18 @@ public class ColorControlPanel extends JPanel {
         this.rColorValue.addActionListener(new RValueActionListener(this.colorDisplayPanelRef, this));
     }
 
+    public void setRSliderValue(int value){
+        this.rColorSlider.setValue(value);
+    }
+
+    public void setGSliderValue(int value){
+        this.gColorSlider.setValue(value);
+    }
+
+    public void setBSliderValue(int value){
+        this.bColorSlider.setValue(value);
+    }
+
     public int getRSliderValue(){
         return this.rColorSlider.getValue();
     }
@@ -65,5 +77,17 @@ public class ColorControlPanel extends JPanel {
 
     public void setBColorValue(int colorValue){
         this.bColorValue.setText(Integer.toString(colorValue));
+    }
+
+    public int getRValue(){
+        return Integer.parseInt(this.rColorValue.getText());
+    }
+
+    public int getGValue(){
+        return Integer.parseInt(this.gColorValue.getText());
+    }
+
+    public int getBValue(){
+        return Integer.parseInt(this.bColorValue.getText());
     }
 }
