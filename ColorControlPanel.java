@@ -39,6 +39,7 @@ public class ColorControlPanel extends JPanel {
         this.gColorSlider.addChangeListener(new GSliderChangeListener(this.colorDisplayPanelRef, this));
         this.bColorSlider.addChangeListener(new BSliderChangeListener(this.colorDisplayPanelRef, this));
 
+        //  TODO: Create and add action listener event code to G and B value text fields.
         this.rColorValue.addActionListener(new RValueActionListener(this.colorDisplayPanelRef, this));
     }
 
