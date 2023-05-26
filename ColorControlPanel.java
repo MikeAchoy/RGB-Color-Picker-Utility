@@ -1,19 +1,18 @@
 
+import com.sun.jdi.Value;
+
 import java.awt.*;
 import javax.swing.*;
 
 public class ColorControlPanel extends JPanel {
-    private JSlider rColorSlider;
-    private JSlider gColorSlider;
-    private JSlider bColorSlider;
-    private JTextField rColorValue;
-    private JTextField gColorValue;
-    private JTextField bColorValue;
-
-    private ColorDisplayPanel colorDisplayPanelRef;
+    private final JSlider rColorSlider;
+    private final JSlider gColorSlider;
+    private final JSlider bColorSlider;
+    private final JTextField rColorValue;
+    private final JTextField gColorValue;
+    private final JTextField bColorValue;
 
     public ColorControlPanel(ColorDisplayPanel colorDisplayPanelRefToSet) {
-        this.colorDisplayPanelRef = colorDisplayPanelRefToSet;
 
         this.setPreferredSize(new Dimension(400, 200));
         this.setLayout(new GridLayout(3, 2));
@@ -35,26 +34,32 @@ public class ColorControlPanel extends JPanel {
         this.add(this.bColorSlider);
         this.add(this.bColorValue);
 
-        this.rColorSlider.addChangeListener(new RSliderChangeListener(this.colorDisplayPanelRef, this));
-        this.gColorSlider.addChangeListener(new GSliderChangeListener(this.colorDisplayPanelRef, this));
-        this.bColorSlider.addChangeListener(new BSliderChangeListener(this.colorDisplayPanelRef, this));
+        // Add change listeners to color value sliders.
+        this.rColorSlider.addChangeListener(new SliderChangeListeners.RSliderChangeListener(colorDisplayPanelRefToSet, this));
+        this.gColorSlider.addChangeListener(new SliderChangeListeners.GSliderChangeListener(colorDisplayPanelRefToSet, this));
+        this.bColorSlider.addChangeListener(new SliderChangeListeners.BSliderChangeListener(colorDisplayPanelRefToSet, this));
 
-        //  TODO: Create and add action listener event code to G and B value text fields.
-        this.rColorValue.addActionListener(new RValueActionListener(this.colorDisplayPanelRef, this));
+        // Add action listeners to color value text fields.
+        this.rColorValue.addActionListener(new ValueActionListeners.RValueActionListener(colorDisplayPanelRefToSet, this));
+        this.gColorValue.addActionListener(new ValueActionListeners.GValueActionListener(colorDisplayPanelRefToSet, this));
+        this.bColorValue.addActionListener(new ValueActionListeners.BValueActionListener(colorDisplayPanelRefToSet, this));
     }
 
-    public void setRSliderValue(int value){
+    // Slider color value functions:
+    // Slider setter functions.
+    public void setRColorSlider(int value){
         this.rColorSlider.setValue(value);
     }
 
-    public void setGSliderValue(int value){
+    public void setGColorSlider(int value){
         this.gColorSlider.setValue(value);
     }
 
-    public void setBSliderValue(int value){
+    public void setBColorSlider(int value){
         this.bColorSlider.setValue(value);
     }
 
+    // Slider getter functions.
     public int getRSliderValue(){
         return this.rColorSlider.getValue();
     }
@@ -67,6 +72,8 @@ public class ColorControlPanel extends JPanel {
         return this.bColorSlider.getValue();
     }
 
+    // Text field color value functions:
+    // Text field setter functions.
     public void setRColorValue(int colorValue){
         this.rColorValue.setText(Integer.toString(colorValue));
     }
@@ -79,15 +86,16 @@ public class ColorControlPanel extends JPanel {
         this.bColorValue.setText(Integer.toString(colorValue));
     }
 
-    public int getRValue(){
+    // Text field getters functions.
+    public int getRColorValue(){
         return Integer.parseInt(this.rColorValue.getText());
     }
 
-    public int getGValue(){
+    public int getGColorValue(){
         return Integer.parseInt(this.gColorValue.getText());
     }
 
-    public int getBValue(){
+    public int getBColorValue(){
         return Integer.parseInt(this.bColorValue.getText());
     }
 }
