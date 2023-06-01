@@ -40,7 +40,7 @@ public class ValueActionListeners {
                 this.colorControlPanel.setRColorValue(prevValue);
 
                 // Display Error window.
-                ErrorWindow errorWindow = new ErrorWindow();
+                ErrorWindow errorWindow = new ErrorWindow('R');
                 errorWindow.setVisible();
             }
         }
@@ -79,7 +79,7 @@ public class ValueActionListeners {
                 this.colorControlPanel.setGColorValue(prevValue);
 
                 // Display error window.
-                ErrorWindow errorWindow = new ErrorWindow();
+                ErrorWindow errorWindow = new ErrorWindow('G');
                 errorWindow.setVisible();
             }
         }
@@ -117,7 +117,7 @@ public class ValueActionListeners {
                 this.colorControlPanel.setBColorValue(prevValue);
 
                 // Display error window.
-                ErrorWindow errorWindow = new ErrorWindow();
+                ErrorWindow errorWindow = new ErrorWindow('B');
                 errorWindow.setVisible();
             }
         }
