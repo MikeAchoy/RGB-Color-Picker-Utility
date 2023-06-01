@@ -1,16 +1,19 @@
-
-import com.sun.jdi.Value;
-
 import java.awt.*;
 import javax.swing.*;
 
 public class ColorControlPanel extends JPanel {
+
     private final JSlider rColorSlider;
     private final JSlider gColorSlider;
     private final JSlider bColorSlider;
     private final JTextField rColorValue;
     private final JTextField gColorValue;
     private final JTextField bColorValue;
+
+    // Accepted set RGB colors.
+    private int currentR;
+    private int currentG;
+    private int currentB;
 
     public ColorControlPanel(ColorDisplayPanel colorDisplayPanelRefToSet) {
 
@@ -20,6 +23,10 @@ public class ColorControlPanel extends JPanel {
         this.rColorValue = new JTextField("0");
         this.gColorValue = new JTextField("0");
         this.bColorValue = new JTextField("0");
+
+        this.currentR = 0;
+        this.currentG = 0;
+        this.currentB = 0;
 
         this.rColorSlider = new JSlider(0, 255, 0);
         this.gColorSlider = new JSlider(0, 255, 0);
@@ -43,6 +50,33 @@ public class ColorControlPanel extends JPanel {
         this.rColorValue.addActionListener(new ValueActionListeners.RValueActionListener(colorDisplayPanelRefToSet, this));
         this.gColorValue.addActionListener(new ValueActionListeners.GValueActionListener(colorDisplayPanelRefToSet, this));
         this.bColorValue.addActionListener(new ValueActionListeners.BValueActionListener(colorDisplayPanelRefToSet, this));
+    }
+
+    // Color value current value setters and getters.
+    // Current value setter functions.
+    public void setCurrentR(int rValue){
+        this.currentR = rValue;
+    }
+
+    public void setCurrentG(int gValue){
+        this.currentR = gValue;
+    }
+
+    public void setCurrentB(int bValue){
+        this.currentR = bValue;
+    }
+
+    // Current value getter functions.
+    public int getCurrentR(){
+        return this.currentR;
+    }
+
+    public int getCurrentG(){
+        return this.currentG;
+    }
+
+    public int getCurrentB(){
+        return this.currentB;
     }
 
     // Slider color value functions:
