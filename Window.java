@@ -5,7 +5,7 @@ public class Window extends JFrame {
 
     public Window(){
         // Window dimensions and title options to set.
-        int WINDOW_WIDTH = 400;
+        int WINDOW_WIDTH = 500;
         int WINDOW_HEIGHT = 600;
         String WINDOW_TITLE = "RGB Color Picker";
 
