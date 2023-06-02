@@ -59,11 +59,11 @@ public class ColorControlPanel extends JPanel {
     }
 
     public void setCurrentG(int gValue){
-        this.currentR = gValue;
+        this.currentG = gValue;
     }
 
     public void setCurrentB(int bValue){
-        this.currentR = bValue;
+        this.currentB = bValue;
     }
 
     // Current value getter functions.
