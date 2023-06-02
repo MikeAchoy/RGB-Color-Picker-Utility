@@ -3,16 +3,13 @@ import java.awt.*;
 
 public class Window extends JFrame {
 
-    private ColorDisplayPanel colorDisplay;
-    private ColorControlPanel colorControlPanel;
-
     public Window(){
-        // Window dimensions and title.
+        // Window dimensions and title options to set.
         int WINDOW_WIDTH = 400;
         int WINDOW_HEIGHT = 600;
         String WINDOW_TITLE = "RGB Color Picker";
 
-        //
+        // Set window options.
         this.setSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
         this.setTitle(WINDOW_TITLE);
         this.setBackground(new Color(35, 35, 35));
@@ -20,11 +17,14 @@ public class Window extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //
-        this.colorDisplay = new ColorDisplayPanel();
-        this.colorControlPanel = new ColorControlPanel(this.colorDisplay);
+        // Create instance of window objects.
+        ValueDisplayPanel valueDisplayPanel = new ValueDisplayPanel();
+        ColorDisplayPanel colorDisplay = new ColorDisplayPanel(valueDisplayPanel);
+        ColorControlPanel colorControlPanel = new ColorControlPanel(colorDisplay);
 
-        this.getContentPane().add(colorDisplay, BorderLayout.NORTH);
+        // Add Color display and control panel objects to the window.
+        this.getContentPane().add(valueDisplayPanel, BorderLayout.NORTH);
+        this.getContentPane().add(colorDisplay, BorderLayout.CENTER);
         this.getContentPane().add(colorControlPanel, BorderLayout.SOUTH);
     }
 
