@@ -21,7 +21,15 @@ public class ErrorWindow extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1,3));
 
-        JLabel errorMessage = new JLabel("Invalid Value: " + invalidValue + " bounds are [0, 250]");
+        JLabel errorMessage = new JLabel();
+
+        if(invalidValue == '0'){
+            errorMessage.setText("Value entered is not an integer!");
+        }
+        else{
+            errorMessage.setText("Invalid Value: " + invalidValue + " bounds are [0, 250]");
+        }
+
         JButton okButton = new JButton("Ok");
 
         okButton.addActionListener(e -> {
