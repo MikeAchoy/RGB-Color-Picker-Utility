@@ -26,15 +26,15 @@ public class ValueDisplayPanel extends JPanel {
 
         // Set button listeners.
         copyRGB.addActionListener(e -> {
-            String myString = this.rgbLabel.getText();
-            StringSelection stringSelection = new StringSelection(myString);
+            String stringToCopy = this.rgbLabel.getText();
+            StringSelection stringSelection = new StringSelection(stringToCopy);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(stringSelection, null);
         });
 
         copyHex.addActionListener(e -> {
-            String myString = this.hexLabel.getText();
-            StringSelection stringSelection = new StringSelection(myString);
+            String stringToCopy = this.hexLabel.getText();
+            StringSelection stringSelection = new StringSelection(stringToCopy);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(stringSelection, null);
         });
