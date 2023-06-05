@@ -3,7 +3,8 @@ import java.awt.event.ActionListener;
 
 public class ValueActionListeners {
 
-    // Value check function.
+    // Value check function:
+    /* Checks if the value is within accepted RGB values, returns false if it isn't */
     private static boolean checkValue(int value){
         return (value >= 0) && (value <= 255);
     }
@@ -21,20 +22,35 @@ public class ValueActionListeners {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            // Checks if value is an integer or not.
+            try{
+                // Throws exception if the value can't be parsed into an integer.
+                int check = Integer.parseInt(Integer.toString(this.colorControlPanel.getRColorValue()));
+            }catch (NumberFormatException ex) {
+                // Set the value in the R text field to the previous accepted value.
+                int prevValue = this.colorControlPanel.getCurrentR();
+                this.colorControlPanel.setRColorValue(prevValue);
+
+                // Display Error window.
+                ErrorWindow errorWindow = new ErrorWindow('0');
+                errorWindow.setVisible();
+                return;
+            }
+
             // Gets R value from the text field that was updated.
             int rValue = this.colorControlPanel.getRColorValue();
 
-            // Check rValue before it updates application objects.
+            // Checks rValue before it updates application objects.
             boolean goodValue = checkValue(rValue);
 
             if(goodValue) {
+                // Tests passed block, so the accepted so updates are made with this value.
                 // Update the R slider and update color display with the new R Value.
                 this.colorControlPanel.setRColorSlider(rValue);
                 this.colorDisplayPanel.setDisplayR(rValue);
                 this.colorControlPanel.setCurrentR(rValue);
             }
             else{
-                //  TODO: Add checker to check if the value entered is an int or not.
                 // Set the value in the R text field to the previous accepted value.
                 int prevValue = this.colorControlPanel.getCurrentR();
                 this.colorControlPanel.setRColorValue(prevValue);
@@ -60,6 +76,20 @@ public class ValueActionListeners {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
+            try{
+                int check = Integer.parseInt(Integer.toString(this.colorControlPanel.getGColorValue()));
+            }catch (NumberFormatException ex) {
+                // Set the value in the G text field to the previous accepted value.
+                int prevValue = this.colorControlPanel.getCurrentG();
+                this.colorControlPanel.setGColorValue(prevValue);
+
+                // Display Error window.
+                ErrorWindow errorWindow = new ErrorWindow('0');
+                errorWindow.setVisible();
+                return;
+            }
+
             // Gets G value from the text field that was updated.
             int gValue = this.colorControlPanel.getGColorValue();
 
@@ -73,7 +103,6 @@ public class ValueActionListeners {
                 this.colorControlPanel.setCurrentG(gValue);
             }
             else{
-                //  TODO: Add checker to check if the value entered is an int or not.
                 // Set the value in the G text field to the previous accepted value.
                 int prevValue = this.colorControlPanel.getCurrentG();
                 this.colorControlPanel.setGColorValue(prevValue);
@@ -98,6 +127,21 @@ public class ValueActionListeners {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
+            try{
+                int check = Integer.parseInt(Integer.toString(this.colorControlPanel.getBColorValue()));
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                // Set the value in the B text field to the previous accepted value.
+                int prevValue = this.colorControlPanel.getCurrentB();
+                this.colorControlPanel.setBColorValue(prevValue);
+
+                // Display Error window.
+                ErrorWindow errorWindow = new ErrorWindow('0');
+                errorWindow.setVisible();
+                return;
+            }
+
             // Gets G value from the text field that was updated.
             int bValue = this.colorControlPanel.getBColorValue();
 
@@ -111,7 +155,6 @@ public class ValueActionListeners {
                 this.colorControlPanel.setCurrentB(bValue);
             }
             else{
-                //  TODO: Add checker to check if the value entered is an int or not.
                 // Set the value in the B text field to the previous accepted value.
                 int prevValue = this.colorControlPanel.getCurrentB();
                 this.colorControlPanel.setBColorValue(prevValue);
