@@ -21,7 +21,7 @@ git clone https://github.com/MikeAchoy/rgb-color-picker.git
 
 2. Open the project in your preferred Java Integrated Development Environment (IDE).
 
-3. Build and run the project.
+3. Build and run the project from `Main.java`.
 
 ## Usage
 
