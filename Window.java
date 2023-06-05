@@ -5,7 +5,7 @@ public class Window extends JFrame {
 
     public Window(){
         // Window dimensions and title options to set.
-        int WINDOW_WIDTH = 500;
+        int WINDOW_WIDTH = 550;
         int WINDOW_HEIGHT = 600;
         String WINDOW_TITLE = "RGB Color Picker";
 
@@ -14,7 +14,7 @@ public class Window extends JFrame {
         this.setTitle(WINDOW_TITLE);
         this.setBackground(new Color(35, 35, 35));
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        this.setResizable(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create instance of window objects.
